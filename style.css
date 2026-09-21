@@ -1,0 +1,260 @@
+/* ============================================================
+   Design tokens
+   ============================================================ */
+:root {
+  --graphite: #1D2124;
+  --graphite-soft: #2A2F33;
+  --paper: #F1EDE4;
+  --paper-dim: #E7E1D3;
+  --amber: #D98E2C;
+  --steel: #4C6B82;
+  --rule: #C9C2B4;
+  --rule-dark: #4A4F53;
+
+  --font-display: "Archivo", "Arial Narrow", sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+
+  --max-w: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--graphite);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+a { color: var(--steel); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--amber); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ============================================================
+   Nameplate header — modeled on a switchgear rating plate
+   ============================================================ */
+.site-header {
+  border-bottom: 3px solid var(--graphite);
+  background: var(--graphite);
+  color: var(--paper);
+}
+
+.nameplate {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nameplate a { color: var(--paper); text-decoration: none; }
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.brand .brand-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--rule);
+  margin-top: 2px;
+}
+
+.site-nav { display: flex; gap: 22px; font-family: var(--font-display); font-size: 0.95rem; }
+.site-nav a { color: var(--paper); text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+.site-nav a:hover { border-bottom-color: var(--amber); color: var(--paper); }
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; padding: 36px 20px 28px; }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  line-height: 1.08;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+}
+
+.hero p.lede {
+  font-size: 1.15rem;
+  color: var(--graphite-soft);
+  max-width: 46ch;
+}
+
+/* rating-plate style info box, repurposed for site stats */
+.plate {
+  border: 1px solid var(--graphite);
+  background: var(--paper-dim);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.plate-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.plate-row:last-child { border-bottom: none; }
+.plate-row span:first-child { color: var(--rule-dark); }
+.plate-row span:last-child { font-weight: 700; }
+
+/* ============================================================
+   Sections / rules
+   ============================================================ */
+.section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 8px 24px 56px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  border-top: 3px solid var(--graphite);
+  padding-top: 10px;
+  margin: 0 0 24px;
+}
+
+/* ============================================================
+   Post list
+   ============================================================ */
+.post-list { list-style: none; margin: 0; padding: 0; }
+
+.post-item {
+  border-bottom: 1px solid var(--rule);
+  padding: 22px 0;
+}
+.post-item:first-child { border-top: 1px solid var(--rule); }
+
+.post-item a.title-link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--graphite);
+  display: block;
+  margin-bottom: 6px;
+}
+.post-item a.title-link:hover { color: var(--steel); }
+
+.post-meta {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--rule-dark);
+  margin-bottom: 8px;
+}
+.post-meta .tag {
+  color: var(--steel);
+  border: 1px solid var(--steel);
+  padding: 1px 7px;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+
+.post-excerpt { color: var(--graphite-soft); max-width: 62ch; }
+
+/* ============================================================
+   Article page
+   ============================================================ */
+.article-header {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px 24px 0;
+}
+
+.article-header .post-meta { margin-bottom: 14px; }
+
+.article-header h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  line-height: 1.12;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+
+article.post-body {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 8px 24px 60px;
+}
+
+article.post-body h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 2em 0 0.6em;
+}
+
+article.post-body p { margin: 0 0 1.1em; }
+
+article.post-body ul, article.post-body ol {
+  margin: 0 0 1.1em;
+  padding-left: 1.3em;
+}
+article.post-body li { margin-bottom: 0.5em; }
+
+article.post-body blockquote {
+  margin: 1.6em 0;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--amber);
+  color: var(--graphite-soft);
+  font-style: italic;
+}
+
+.byline-box {
+  max-width: var(--max-w);
+  margin: 40px auto 0;
+  padding: 24px;
+  background: var(--paper-dim);
+  border: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  border-top: 3px solid var(--graphite);
+  padding: 28px 24px 40px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--rule-dark);
+}
